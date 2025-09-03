@@ -16,16 +16,16 @@ console.log(
 let num1 = 10;
 let num2 = 20;
 
-addition = 10 + 20;
+addition = num1 + num2;
 console.log("10 + 20 = ", addition);
 
-substraction = 10 - 20;
+substraction = num1 - num2;
 console.log("10 - 20 = ", substraction);
 
-multiplication = 10 * 20;
+multiplication = num1 * num2;
 console.log("10 * 20 = ", multiplication);
 
-division = 10 / 20;
+division = num1 / num2;
 console.log("10 / 20 = ", division);
 
 // 3. Working with Strings
