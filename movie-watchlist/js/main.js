@@ -1,15 +1,10 @@
-// Movie Watchlist JavaScript
-// Requirements: add movies to an array, display them, and remove watched movies.
-
-// We'll keep an array of movie objects: { id, title }
 let movies = [];
 
-// DOM elements
 const movieInput = document.getElementById("movie-name");
 const addBtn = document.getElementById("add-movie-btn");
 const movieList = document.getElementById("movie-list");
 
-// Load movies from localStorage if available
+// load movies
 function loadMovies() {
   const stored = localStorage.getItem("movies");
   if (stored) {
@@ -22,17 +17,17 @@ function loadMovies() {
   }
 }
 
-// Save movies to localStorage
+// save movies
 function saveMovies() {
   localStorage.setItem("movies", JSON.stringify(movies));
 }
 
-// Create a unique ID for a movie
+// create a unique ID
 function createId() {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
 }
 
-// Add a movie to the array
+// add movies
 function addMovie(title) {
   const trimmed = title && title.trim();
   if (!trimmed) return false; // nothing to add
@@ -48,7 +43,7 @@ function addMovie(title) {
   return true;
 }
 
-// Remove a movie by id
+// remove a movie
 function removeMovie(id) {
   const index = movies.findIndex((m) => m.id === id);
   if (index === -1) return false;
@@ -58,9 +53,8 @@ function removeMovie(id) {
   return true;
 }
 
-// Display the list of movies in the DOM
+// display the movies
 function displayMovies() {
-  // Clear list
   movieList.innerHTML = "";
 
   if (movies.length === 0) {
@@ -71,7 +65,6 @@ function displayMovies() {
     return;
   }
 
-  // Create list items
   movies.forEach((movie) => {
     const li = document.createElement("li");
     li.className = "collection-item";
@@ -84,7 +77,6 @@ function displayMovies() {
     removeBtn.textContent = "Watched";
     removeBtn.addEventListener("click", () => removeMovie(movie.id));
 
-    // Use a container for layout
     const container = document.createElement("div");
     container.style.display = "flex";
     container.style.justifyContent = "space-between";
@@ -98,7 +90,7 @@ function displayMovies() {
   });
 }
 
-// Wire up add button and Enter key
+// event listeners
 addBtn.addEventListener("click", () => {
   if (addMovie(movieInput.value)) {
     movieInput.value = "";
@@ -114,6 +106,5 @@ movieInput.addEventListener("keydown", (e) => {
   }
 });
 
-// Initialize
 loadMovies();
 displayMovies();
