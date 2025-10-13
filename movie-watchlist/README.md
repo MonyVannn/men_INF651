@@ -15,13 +15,7 @@ Small assignment for INF651: a real-time Movie Watchlist built with HTML, CSS (M
 
 ## How to run
 1. Open `index.html` in your browser, or
-2. Use VS Code Live Server or a simple static server:
-
-```powershell
-# from the movie-watchlist folder
-python -m http.server 8000
-# open http://localhost:8000 in your browser
-```
+2. Use VS Code Live Server or a simple static server
 
 ## Usage
 1. Type a movie title into the input field.
@@ -34,11 +28,6 @@ python -m http.server 8000
 - `displayMovies()` re-renders the list into `#movie-list`
 - `removeMovie(id)` removes a movie by its id
 - `loadMovies()` and `saveMovies()` handle localStorage persistence
-
-## Possible improvements
-- Add ratings, categories, or search/filter functionality
-- Add confirmation before removing items
-- Add unit tests for the core functions
 
 ---
 Created for INF651 coursework.
