@@ -24,11 +24,11 @@ input {
   margin-top: 20px;
 }
 
-.collection-item {
+/* .collection-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 .collection-item .movie-title {
   font-weight: 500;
