@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NANO: An Interactive JavaScript Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" data-page="home">
+        <img src="logo.svg" alt="NANO" class="logo-img">
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+        <li><a href="#" data-page="quiz" class="nav-link">Quiz</a></li>
+        <li><a href="#" data-page="about" class="nav-link">About</a></li>
+        <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Page Section -->
+  <section id="home-page" class="page-section active">
+    <div class="container">
+      <div class="home-content">
+        <h2 class="page-title">Welcome to NANO</h2>
+        <p class="subtitle">An Interactive JavaScript Quiz</p>
+        <div class="instructions">
+          <h3>Instructions:</h3>
+          <ul>
+            <li>Click on the answer you think is correct</li>
+            <li>You can only select one answer per question</li>
+            <li>Click "Next Question" to proceed</li>
+            <li>Your progress will be shown at the top</li>
+            <li>Get your score at the end!</li>
+          </ul>
+        </div>
+        <button id="start-quiz-btn" class="btn btn-primary">Start Quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz Page Section -->
+  <section id="quiz-page" class="page-section">
+    <div class="container">
+      <div class="quiz-content">
+        <div class="progress-container">
+          <p id="progress-text" class="progress-text">Question 1 of 10</p>
+          <div class="progress-bar">
+            <div id="progress-bar-fill" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="question-container">
+          <h2 id="question-text" class="question-text">Question will appear here</h2>
+        </div>
+
+        <div id="answers-container" class="answers-container">
+        </div>
+
+        <div class="quiz-actions">
+          <button id="next-question-btn" class="btn btn-primary" disabled>Next Question</button>
+        </div>
+
+        <div id="feedback-message" class="feedback-message"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Page Section -->
+  <section id="results-page" class="page-section">
+    <div class="container">
+      <div class="results-content">
+        <h2 class="page-title">Quiz Results</h2>
+        <div class="score-display">
+          <h3 id="final-score" class="score-text">Your Score: 0/10</h3>
+          <p id="score-percentage" class="score-percentage">0%</p>
+        </div>
+        <div id="feedback-text" class="feedback-text">
+        </div>
+
+        <div class="review-section">
+          <button id="toggle-review-btn" class="btn btn-secondary">Review Answers</button>
+          <div id="review-container" class="review-container hidden">
+          </div>
+        </div>
+
+        <div class="results-actions">
+          <button id="retake-quiz-btn" class="btn btn-primary">Retake Quiz</button>
+          <button id="home-from-results-btn" class="btn btn-secondary">Back to Home</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Page Section -->
+  <section id="about-page" class="page-section">
+    <div class="container">
+      <div class="about-content">
+        <h2 class="page-title">About This Quiz</h2>
+        <div class="about-text">
+          <p>
+            NANO is an interactive JavaScript quiz application designed to test your understanding
+            of fundamental JavaScript concepts. This quiz covers topics such as DOM manipulation, event handling,
+            loops, functions, and more.
+          </p>
+          <p>
+            The application demonstrates various JavaScript techniques including dynamic content updates,
+            user interaction handling, state management, and form validation.
+          </p>
+        </div>
+
+        <div class="technologies-section">
+          <h3>Technologies Used:</h3>
+          <ul>
+            <li>HTML5 - Structure and markup</li>
+            <li>CSS3 - Styling and responsive design</li>
+            <li>JavaScript (ES6+) - Interactivity and logic</li>
+            <li>DOM Manipulation - Dynamic content updates</li>
+          </ul>
+        </div>
+
+        <div class="faq-section">
+          <h3>Frequently Asked Questions</h3>
+          <div class="faq-container">
+            <div class="faq-item">
+              <button class="faq-question" data-faq="1">
+                How many questions are in the quiz?
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer hidden" data-answer="1">
+                The quiz contains 10 questions covering various JavaScript concepts.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" data-faq="2">
+                Can I retake the quiz?
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer hidden" data-answer="2">
+                Yes! You can retake the quiz as many times as you want by clicking the "Retake Quiz" button on the
+                results page.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" data-faq="3">
+                Is there a time limit?
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer hidden" data-answer="3">
+                No, there is no time limit. Take your time to read each question carefully.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" data-faq="4">
+                What topics does the quiz cover?
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer hidden" data-answer="4">
+                The quiz covers JavaScript fundamentals including DOM manipulation, events, loops, functions, arrays,
+                objects, and more.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Page Section -->
+  <section id="contact-page" class="page-section">
+    <div class="container">
+      <div class="contact-content">
+        <h2 class="page-title">Contact Us</h2>
+        <p class="contact-subtitle">Have questions or feedback? We'd love to hear from you!</p>
+
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="contact-name">Name:</label>
+            <input type="text" id="contact-name" name="name" class="form-input">
+            <span class="error-message" id="name-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email:</label>
+            <input type="email" id="contact-email" name="email" class="form-input">
+            <span class="error-message" id="email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Message:</label>
+            <textarea id="contact-message" name="message" rows="5" class="form-input"></textarea>
+            <span class="error-message" id="message-error"></span>
+          </div>
+
+          <button type="submit" id="submit-form-btn" class="btn btn-primary">Submit</button>
+        </form>
+
+        <div id="form-success-message" class="success-message hidden">
+          Thank you for your message! We'll get back to you soon.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
